@@ -1,8 +1,25 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import type { NextPage } from "next";
+import Head from "next/head";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import {
+  GeneralResponse,
+  getSearchBooks,
+  items,
+} from "../services/BookService";
+import styles from "../styles/Home.module.css";
 
-export default function Home() {
+const Home: NextPage = () => {
+  const [books, setBooks] = useState<items[]>([]);
+  useEffect(() => {
+    getSearchBooks(
+      encodeURIComponent("crepusculo"),
+      (result: GeneralResponse) => {
+        setBooks(result.items);
+      },
+      (e) => console.error(e)
+    );
+  }, []);
   return (
     <div className={styles.container}>
       <Head>
@@ -17,8 +34,8 @@ export default function Home() {
         </h1>
 
         <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
+          Get started by editing{" "}
+          <code className={styles.code}>pages/index.tsx</code>
         </p>
 
         <div className={styles.grid}>
@@ -51,19 +68,23 @@ export default function Home() {
           </a>
         </div>
       </main>
-
+      {books.map((book, i) => {
+        return <div key={i}>{book.volumeInfo.title}</div>;
+      })}
       <footer className={styles.footer}>
         <a
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
+          Powered by{" "}
           <span className={styles.logo}>
             <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </span>
         </a>
       </footer>
     </div>
-  )
-}
+  );
+};
+
+export default Home;
