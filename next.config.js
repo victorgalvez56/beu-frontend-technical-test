@@ -5,6 +5,7 @@ const nextConfig = {
   images: {
     domains: ["books.google.com", "www.giulianisgrupo.com"],
   },
+  staticPageGenerationTimeout: 1000,
 };
 
 module.exports = nextConfig;

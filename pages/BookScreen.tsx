@@ -43,22 +43,22 @@ const BookScreen: NextPage = () => {
         <div className={styles.boxBack} onClick={() => router.back()}>
           <Image src="/images/back.png" alt="" width={20} height={20} />
         </div>
-        <Image
-          src={book?.img || ""}
-          alt=""
-          className={styles.imgBanner}
-          width={163}
-          height={250}
-        />
+        <div className={styles.boxSelectedImg}>
+          <Image
+            src={
+              book?.img ||
+              "https://www.giulianisgrupo.com/wp-content/uploads/2018/05/nodisponible.png"
+            }
+            alt=""
+            className={styles.imgBanner}
+            width={163}
+            height={250}
+          />
+        </div>
 
         <div className={styles.boxSection}>
           <div className={styles.starsBanner}>
-            <Image
-              src="/images/stars.png"
-              alt=""
-              width={"100%"}
-              height={"100%"}
-            />
+            <Image src="/images/stars.png" alt="" width={"100%"} height={16} />
           </div>
         </div>
         <div className={styles.section2}>

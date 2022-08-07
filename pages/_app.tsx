@@ -3,9 +3,9 @@ import type { AppProps } from "next/app";
 import { RecoilRoot } from "recoil";
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
-  <RecoilRoot>
+  // <RecoilRoot>
     <Component {...pageProps} />
-  </RecoilRoot>
+  // </RecoilRoot>
 );
 
 export default MyApp;
