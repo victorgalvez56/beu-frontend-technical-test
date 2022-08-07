@@ -3,12 +3,12 @@ import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { bookSelected, reviews } from "../services/BookService";
+import { bookSelected, customStyles, reviews } from "../services/BookService";
 import styles from "../styles/Book.module.css";
 import ButtonCustom from "./customComponents/buttonCustom";
 import InputCustom from "./customComponents/inputCustom";
 import TeaxAreaCustom from "./customComponents/textareaCustom";
-
+import ReactModal from "react-modal";
 const BookScreen: NextPage = () => {
   const router = useRouter();
   const [book, setBook] = useState<bookSelected>();
@@ -17,6 +17,8 @@ const BookScreen: NextPage = () => {
   const [focusName, setFocusName] = useState(false);
   const [disableButton, setDisableButton] = useState(true);
   const [reviews, setReviews] = useState<reviews[]>([]);
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const [positionDelete, setPositionDelete] = useState(0);
 
   const handleFocus = () =>
     focusName ? setFocusName(false) : setFocusName(true);
@@ -38,12 +40,24 @@ const BookScreen: NextPage = () => {
       },
     ]);
   };
+
+  const handleDeleteReview = () => {
+    let array = [...reviews]; // make a separate copy of the array
+    if (positionDelete !== -1) {
+      array.splice(positionDelete, 1);
+      setReviews(array);
+    }
+
+    setIsOpen(false);
+  };
   useEffect(() => {
-    console.warn(reviews);
     localStorage.setItem("reviews", JSON.stringify(reviews));
     setNameReview("");
     setNameUser("");
   }, [reviews]);
+  function closeModal() {
+    setIsOpen(false);
+  }
 
   return (
     <div>
@@ -58,6 +72,28 @@ const BookScreen: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
+        <ReactModal
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          style={customStyles}
+          contentLabel="Example Modal"
+        >
+          <div className={styles.titleModal}>
+            ¿Quieres eliminar esta reseña?
+          </div>
+          <ButtonCustom
+            text={"Eliminar"}
+            disabled={false}
+            onPress={handleDeleteReview}
+            className="buttonDelete"
+          />
+          <ButtonCustom
+            text={"Cancelar"}
+            disabled={false}
+            onPress={() => setIsOpen(false)}
+            className="buttonCancel"
+          />
+        </ReactModal>
         <div className={styles.boxBack} onClick={() => router.back()}>
           <Image src="/images/back.png" alt="" width={20} height={20} />
         </div>
@@ -88,46 +124,59 @@ const BookScreen: NextPage = () => {
           <div className={styles.description}>{book?.description}</div>
           <div className={styles.separate}></div>
         </div>
-        <div className={styles.titleReview}>Reseñas</div>
 
-        {reviews.map((review, i) => {
-          {
-            return (
-              <div key={i} style={{ marginTop: 20 }}>
-                <div className={styles.contentReview}>{review.nameReview}</div>
-
-                <div className={styles.optionsReview}>
-                  <div className={styles.userReview}>
-                    {review.nameUser}
-                    <span className={styles.timeReview}>º Hace 1 minuto</span>
-                  </div>
-                  <div className={styles.boxOptions}>
-                    <div>
-                      <Image
-                        src="/images/edit.png"
-                        alt=""
-                        width={20}
-                        height={20}
-                        style={{ marginRight: 19 }}
-                      />
+        {reviews.length > 0 && (
+          <div>
+            <div className={styles.titleReview}>Reseñas</div>
+            {reviews.map((review, i) => {
+              {
+                return (
+                  <div key={i} style={{ marginTop: 20 }}>
+                    <div className={styles.contentReview}>
+                      {review.nameReview}
                     </div>
-                    <div>
-                      <Image
-                        src="/images/trash.png"
-                        alt=""
-                        width={20}
-                        height={20}
-                        className={styles.marginLeft}
-                      />
+
+                    <div className={styles.optionsReview}>
+                      <div className={styles.userReview}>
+                        {review.nameUser}
+                        <span className={styles.timeReview}>
+                          º Hace 1 minuto
+                        </span>
+                      </div>
+                      <div className={styles.boxOptions}>
+                        <div>
+                          <Image
+                            src="/images/edit.png"
+                            alt=""
+                            width={20}
+                            height={20}
+                            // onClick={()=> }
+                            style={{ marginRight: 19 }}
+                          />
+                        </div>
+                        <div>
+                          <Image
+                            src="/images/trash.png"
+                            alt=""
+                            width={20}
+                            height={20}
+                            onClick={() => {
+                              setPositionDelete(i);
+                              setIsOpen(true);
+                            }}
+                            className={styles.marginLeft}
+                          />
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
-            );
-          }
-        })}
+                );
+              }
+            })}
+            <div className={styles.separate}></div>
+          </div>
+        )}
 
-        <div className={styles.separate}></div>
         <div className={styles.titleReview}>Escribe una reseña</div>
         <label className={styles.labelNameUser}>Nombre de usuario</label>
         <InputCustom

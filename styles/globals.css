@@ -74,7 +74,7 @@ a {
 }
 
 .inputSearch {
-  color: #a3a3a3;
+  color: #666665;
   background-color: white;
   border: 0;
   width: 319px;
@@ -107,7 +107,7 @@ a {
   gap: 10px;
   width: 100%;
   height: 82px;
-  color: #000000;
+  color: #666665;
   background: #ffffff;
   border-radius: 8px;
   border: 1px solid rgba(77, 77, 75, 0.32);
@@ -143,4 +143,33 @@ input:focus {
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
+}
+
+.buttonDelete {
+  margin-top: 16px;
+  padding: 9.39535px 23.4884px;
+  gap: 11.74px;
+  width: 100%;
+  height: 37.79px;
+  background: #dec700;
+  border-radius: 9.39535px;
+  color: #090908;
+  border: 0px;
+  margin-left: auto;
+  display: block;
+}
+
+.buttonCancel {
+  margin-top: 16px;
+  padding: 9.39535px 23.4884px;
+  gap: 11.74px;
+  width: 100%;
+  height: 37.79px;
+  background: #595959;
+  border-radius: 9.39535px;
+  color: #ffffff;
+  border: 0px;
+  margin-left: auto;
+  display: block;
+  margin-top: 18px;
 }

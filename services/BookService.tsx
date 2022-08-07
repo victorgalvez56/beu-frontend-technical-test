@@ -36,6 +36,21 @@ export type GeneralResponse = {
 
 type GeneralResponseHandler = (response: GeneralResponse) => void;
 
+export const customStyles = {
+  content: {
+    padding: 16,
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+    width: 343,
+    height: 192,
+    borderRadius: 16,
+  },
+};
+
 export const getSearchBooks = async (
   book: string,
   resultHandler: GeneralResponseHandler,

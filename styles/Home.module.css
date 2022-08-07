@@ -164,7 +164,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  z-index: 999;
+  z-index: 300;
   position: relative;
 }
 .section3:hover {
@@ -172,5 +172,5 @@
   overflow: visible;
   cursor: pointer;
   background: #ffffff;
-  z-index: 9999;
+  z-index: 300;
 }
