@@ -23,6 +23,11 @@ export interface bookSelected {
   authors: string;
   description: string;
 }
+
+export interface reviews {
+  nameUser: string;
+  nameReview: string;
+}
 export type GeneralResponse = {
   kind: string;
   totalItems: number;

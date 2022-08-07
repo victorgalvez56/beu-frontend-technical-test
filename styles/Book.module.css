@@ -126,3 +126,34 @@
 .boxSelectedImg {
   text-align: center;
 }
+.contentReview {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  overflow-wrap: anywhere;
+}
+.userReview {
+  margin-top: 15px;
+  font-weight: 900;
+  font-size: 10px;
+  line-height: 20px;
+}
+.timeReview {
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 20px;
+  color: #a5a5a2;
+}
+.optionsReview {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.marginLeft {
+  margin-left: 19px;
+}
+.boxOptions {
+  display: flex;
+  gap: 19px;
+}
