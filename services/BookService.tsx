@@ -7,11 +7,21 @@ import {
 export interface items {
   volumeInfo: volumeInfo;
 }
-interface volumeInfo {
+export interface volumeInfo {
   title: string;
   authors: Array<string>;
   description: string;
   averageRating: number;
+  imageLinks?: {
+    smallThumbnail?: string;
+    thumbnail?: string;
+  };
+}
+export interface bookSelected {
+  img: string;
+  title: string;
+  authors: string;
+  description: string;
 }
 export type GeneralResponse = {
   kind: string;

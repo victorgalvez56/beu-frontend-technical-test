@@ -1,17 +1,17 @@
 .container {
-  padding: 0 2rem;
+  padding: 26px 17px 0 17px;
 }
 
 .main {
   min-height: 100vh;
-  padding: 4rem 0;
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  display: row;
+  flex-direction: row;
 }
 
+.imgSearch {
+  width: 15px;
+}
 .footer {
   display: flex;
   flex: 1;
@@ -28,81 +28,6 @@
   flex-grow: 1;
 }
 
-.title a {
-  color: #0070f3;
-  text-decoration: none;
-}
-
-.title a:hover,
-.title a:focus,
-.title a:active {
-  text-decoration: underline;
-}
-
-.title {
-  margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
-}
-
-.title,
-.description {
-  text-align: center;
-}
-
-.description {
-  margin: 4rem 0;
-  line-height: 1.5;
-  font-size: 1.5rem;
-}
-
-.code {
-  background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
-}
-
-.grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 800px;
-}
-
-.card {
-  margin: 1rem;
-  padding: 1.5rem;
-  text-align: left;
-  color: inherit;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
-  max-width: 300px;
-}
-
-.card:hover,
-.card:focus,
-.card:active {
-  color: #0070f3;
-  border-color: #0070f3;
-}
-
-.card h2 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
-}
-
-.card p {
-  margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
-}
-
 .logo {
   height: 1em;
   margin-left: 0.5rem;
@@ -111,6 +36,153 @@
 @media (max-width: 600px) {
   .grid {
     width: 100%;
-    flex-direction: column;
+    flex-direction: flex;
   }
+}
+
+@media (prefers-color-scheme: dark) {
+  .card,
+  .footer {
+    border-color: #222;
+  }
+  .code {
+    background: #111;
+  }
+  .logo img {
+    filter: invert(1);
+  }
+}
+
+.card {
+  max-width: 163px;
+  max-height: 250px;
+}
+.img-brand {
+  width: 135.06px;
+  height: 39px;
+}
+.containerBrand {
+  justify-content: center;
+  align-items: center;
+}
+
+.sectionBanner {
+  margin-top: 32px;
+  display: flex;
+  grid-gap: 9px;
+  justify-content: space-between;
+  height: 316px;
+}
+
+.imgBanner {
+  border: 1.03968px solid #ffffff;
+  border-radius: 10.3968px;
+  width: 163px;
+  height: 250px;
+}
+.section {
+  margin-top: 32px;
+  display: grid;
+  grid-gap: 28px;
+  grid-template-columns: auto auto auto;
+  height: 182.8px;
+  text-align: center;
+}
+.boxBanner {
+  margin-top: 5.25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 32px;
+  text-align: center;
+  font-size: 16px;
+}
+.boxSection {
+  margin-top: 5.25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 32px;
+  text-align: center;
+  font-size: 16px;
+}
+.titleBanner {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  color: #9a9a9a;
+}
+
+.textBanner {
+  font-family: "Mulish";
+  font-style: italic;
+  font-weight: 600;
+  line-height: 16px;
+  align-items: center;
+  color: #000000;
+}
+.starsBanner {
+  height: 16px;
+  width: 107.33px;
+}
+
+.titleSection {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  color: #9a9a9a;
+  margin-top: 5.25px;
+}
+
+.textSection {
+  font-family: "Mulish";
+  font-style: italic;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 16px;
+  align-items: center;
+  color: #000000;
+}
+.starsSection {
+  height: 11px;
+  width: 73.79px;
+}
+.imgSection {
+  border: 1.03968px solid #ffffff;
+  border-radius: 10.3968px;
+  width: 92.53px;
+  height: 125.8px;
+}
+
+.section2 {
+  width: 108px;
+  height: 100%;
+}
+
+.section3 {
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  z-index: 999;
+  position: relative;
+}
+.section3:hover {
+  white-space: initial;
+  overflow: visible;
+  cursor: pointer;
+  background: #ffffff;
+  z-index: 9999;
+}
+.loader {
+  text-align: center;
+  z-index: 999;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
 }

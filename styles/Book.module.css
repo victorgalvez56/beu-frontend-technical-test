@@ -1,0 +1,126 @@
+.main {
+  min-height: 100vh;
+  flex: 1;
+  display: row;
+  flex-direction: row;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.imgBanner {
+  width: 163px;
+  height: 250px;
+  border: 1px solid #000000;
+  backdrop-filter: blur(4px);
+  border-radius: 20px;
+  margin-left: 106px;
+  margin-right: 106px;
+  border: 0;
+}
+
+.boxBack {
+  position: relative;
+  margin-top: 11.29px;
+  width: 100%;
+  height: 36px;
+  left: 0px;
+  top: 0px;
+}
+
+.starsBanner {
+  width: 107.33px;
+  height: 16px;
+}
+
+.section2 {
+  width: 90px;
+  height: 100%;
+  text-align: center;
+}
+.section2:hover {
+  width: 100%;
+}
+.section3:hover {
+  margin-left: 0;
+}
+.section3 {
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  z-index: 999;
+  position: relative;
+  margin-left: 133.5px;
+}
+
+.section3:hover {
+  white-space: initial;
+  overflow: visible;
+  cursor: pointer;
+  background: #ffffff;
+  z-index: 9999;
+}
+
+.titleBanner {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  color: #9a9a9a;
+  text-align: center;
+}
+
+.textBanner {
+  font-family: "Mulish";
+  font-style: italic;
+  font-weight: 600;
+  line-height: 16px;
+  align-items: center;
+  color: #000000;
+}
+
+.boxSection {
+  margin-left: 133.5px;
+  margin-top: 10px;
+}
+
+.boxDescription {
+  margin-top: 24px;
+}
+.description {
+  display: -webkit-box;
+  max-width: 100%;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.description:hover {
+  overflow: visible;
+  -webkit-line-clamp: initial;
+}
+.separate {
+  height: 2px;
+  background: #d9d9d9;
+  margin-top: 16px;
+  margin-bottom: 24px;
+}
+.boxReview {
+  display: grid;
+  width: 100%;
+  margin-top: 16px;
+}
+.titleReview {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 8px;
+}
+.labelNameUser {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+}

@@ -14,3 +14,123 @@ a {
 * {
   box-sizing: border-box;
 }
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: #000000;
+    background: white;
+  }
+}
+
+.containerSearch {
+  align-items: center;
+  margin-top: 24px;
+  display: flex;
+  padding: 10px 12px;
+  width: 100%;
+  height: 40px;
+  border: 1px solid #bdbdbd;
+  backdrop-filter: blur(16px);
+  border-radius: 8px;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.containerInput {
+  align-items: center;
+  margin-top: 8px;
+  display: flex;
+  padding: 10px 12px;
+  width: 100%;
+  height: 40px;
+  border: 1px solid #bdbdbd;
+  backdrop-filter: blur(16px);
+  border-radius: 8px;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+}
+.containerInputFocus {
+  align-items: center;
+  margin-top: 8px;
+  display: flex;
+  padding: 10px 12px;
+  width: 100%;
+  height: 40px;
+  border: 1px solid #bdbdbd;
+  backdrop-filter: blur(16px);
+  border-radius: 8px;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  border: 1px solid #dec700;
+}
+
+.inputSearch {
+  color: #a3a3a3;
+  background-color: white;
+  border: 0;
+  width: 319px;
+  height: 20px;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}
+.inputSearchIcon {
+  margin-left: 9.25px;
+  color: #a3a3a3;
+  background-color: white;
+  border: 0;
+  width: 319px;
+  height: 20px;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}
+.inputSearch:focus-visible {
+  outline: 0px solid white;
+}
+
+.containerReview {
+  padding: 10px 12px;
+  gap: 10px;
+  width: 100%;
+  height: 82px;
+  color: #000000;
+  background: #ffffff;
+  border-radius: 8px;
+  border: 1px solid rgba(77, 77, 75, 0.32);
+}
+textarea:focus {
+  outline: none !important;
+  border: 1px solid #dec700;
+}
+
+input:focus {
+  outline: none;
+}
+
+.buttonPublish {
+  margin-top: 16px;
+  padding: 9.39535px 23.4884px;
+  gap: 11.74px;
+  width: 121px;
+  height: 37.79px;
+  background: #dec700;
+  border-radius: 9.39535px;
+  color: #090908;
+  border: 0px;
+  margin-left: auto;
+  display: block;
+}
