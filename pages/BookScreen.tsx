@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { bookSelected } from "../services/BookService";
@@ -40,12 +41,24 @@ const BookScreen: NextPage = () => {
 
       <main className={styles.main}>
         <div className={styles.boxBack} onClick={() => router.back()}>
-          <img src="/images/back.png" alt="" className={styles.iconBack} />
+          <Image src="/images/back.png" alt="" width={20} height={20} />
         </div>
-        <img src={book?.img} alt="" className={styles.imgBanner} />
+        <Image
+          src={book?.img || ""}
+          alt=""
+          className={styles.imgBanner}
+          width={163}
+          height={250}
+        />
+
         <div className={styles.boxSection}>
           <div className={styles.starsBanner}>
-            <img src="/images/stars.png" alt="" width={"100%"} />
+            <Image
+              src="/images/stars.png"
+              alt=""
+              width={"100%"}
+              height={"100%"}
+            />
           </div>
         </div>
         <div className={styles.section2}>

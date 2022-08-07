@@ -8,8 +8,6 @@
 }
 
 .imgBanner {
-  width: 163px;
-  height: 250px;
   border: 1px solid #000000;
   backdrop-filter: blur(4px);
   border-radius: 20px;

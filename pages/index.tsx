@@ -121,17 +121,27 @@ const BooksList = () => {
                     },
                   }}
                 >
-                  <img
-                    src={book.volumeInfo.imageLinks?.thumbnail}
-                    alt=""
+                  <Image
+                    src={
+                      book.volumeInfo.imageLinks?.thumbnail ||
+                      "https://www.giulianisgrupo.com/wp-content/uploads/2018/05/nodisponible.png"
+                    }
+                    alt="book"
                     className={styles.imgSection}
+                    width={92.53}
+                    height={125.8}
                   />
                 </Link>
               </div>
 
               <div className={styles.boxSection}>
                 <div className={styles.starsSection}>
-                  <img src="/images/stars.png" alt="" width={"100%"} />
+                  <Image
+                    src="/images/stars.png"
+                    alt="stars"
+                    width={"100%"}
+                    height={16}
+                  />
                 </div>
                 <div className={styles.section2}>
                   <div className={styles.section3}>
@@ -186,17 +196,27 @@ const BooksListBanner = () => {
                       },
                     }}
                   >
-                    <img
-                      src={book.volumeInfo.imageLinks?.thumbnail}
-                      alt=""
-                      className={styles.imgBanner}
+                    <Image
+                      src={
+                        book.volumeInfo.imageLinks?.thumbnail ||
+                        "https://www.giulianisgrupo.com/wp-content/uploads/2018/05/nodisponible.png"
+                      }
+                      alt="book"
+                      className={styles.imgSection}
+                      width={163}
+                      height={250}
                     />
                   </Link>
                 </div>
 
                 <div className={styles.boxBanner}>
                   <div className={styles.starsBanner}>
-                    <img src="/images/stars.png" alt="" width={"100%"} />
+                    <Image
+                      src="/images/stars.png"
+                      alt="starts"
+                      width={"100%"}
+                      height={16}
+                    />
                   </div>
                   <div className={styles.section2}>
                     <div className={styles.section3}>

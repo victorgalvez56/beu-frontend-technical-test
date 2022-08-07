@@ -77,8 +77,6 @@
 .imgBanner {
   border: 1.03968px solid #ffffff;
   border-radius: 10.3968px;
-  width: 163px;
-  height: 250px;
 }
 .section {
   margin-top: 32px;
@@ -87,6 +85,7 @@
   grid-template-columns: auto auto auto;
   height: 182.8px;
   text-align: center;
+  justify-content: space-around;
 }
 .boxBanner {
   margin-top: 5.25px;
@@ -153,8 +152,6 @@
 .imgSection {
   border: 1.03968px solid #ffffff;
   border-radius: 10.3968px;
-  width: 92.53px;
-  height: 125.8px;
 }
 
 .section2 {
