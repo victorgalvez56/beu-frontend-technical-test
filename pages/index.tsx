@@ -20,7 +20,7 @@ import LoadingCustom from "./customComponents/loadingCustom";
 const Home: NextPage = () => {
   const [focusWord, setFocusWord] = useState(false);
   // const [search, setSearch] = useRecoilState(word);
-  const [word, setWord] = useState("juegos del hambre");
+  const [word, setWord] = useState("Javascript");
   const [books, setBooks] = useState<items[]>([]);
   const [loading, setLoading] = useState(false);
 
