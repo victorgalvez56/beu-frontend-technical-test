@@ -19,6 +19,9 @@ const BookScreen: NextPage = () => {
   const [reviews, setReviews] = useState<reviews[]>([]);
   const [modalIsOpen, setIsOpen] = useState(false);
   const [positionDelete, setPositionDelete] = useState(0);
+  const [positionEdit, setPositionEdit] = useState(0);
+
+  const [showEditView, setShowEditView] = useState(true);
 
   const handleFocus = () =>
     focusName ? setFocusName(false) : setFocusName(true);
@@ -41,8 +44,32 @@ const BookScreen: NextPage = () => {
     ]);
   };
 
+  const handleSelectedEdit = (position: number) => {
+    setPositionEdit(position);
+    setNameReview(reviews[position].nameReview);
+    setNameUser(reviews[position].nameUser);
+    setShowEditView(false);
+  };
+
+  const handlePublishEdit = () => {
+    const newState = reviews.map((obj) => {
+      if (
+        reviews[positionEdit].nameUser === obj.nameUser &&
+        reviews[positionEdit].nameReview === obj.nameReview
+      ) {
+        return { ...obj, nameUser, nameReview };
+      }
+      return obj;
+    });
+
+    setReviews(newState);
+    setNameReview("");
+    setNameUser("");
+    setShowEditView(true);
+  };
+
   const handleDeleteReview = () => {
-    let array = [...reviews]; // make a separate copy of the array
+    let array = [...reviews];
     if (positionDelete !== -1) {
       array.splice(positionDelete, 1);
       setReviews(array);
@@ -52,12 +79,10 @@ const BookScreen: NextPage = () => {
   };
   useEffect(() => {
     localStorage.setItem("reviews", JSON.stringify(reviews));
+    console.warn(reviews);
     setNameReview("");
     setNameUser("");
   }, [reviews]);
-  function closeModal() {
-    setIsOpen(false);
-  }
 
   return (
     <div>
@@ -74,7 +99,7 @@ const BookScreen: NextPage = () => {
       <main className={styles.main}>
         <ReactModal
           isOpen={modalIsOpen}
-          onRequestClose={closeModal}
+          onRequestClose={() => setIsOpen(false)}
           style={customStyles}
           contentLabel="Example Modal"
         >
@@ -125,7 +150,7 @@ const BookScreen: NextPage = () => {
           <div className={styles.separate}></div>
         </div>
 
-        {reviews.length > 0 && (
+        {reviews.length > 0 && showEditView && (
           <div>
             <div className={styles.titleReview}>Reseñas</div>
             {reviews.map((review, i) => {
@@ -150,7 +175,9 @@ const BookScreen: NextPage = () => {
                             alt=""
                             width={20}
                             height={20}
-                            // onClick={()=> }
+                            onClick={() => {
+                              handleSelectedEdit(i);
+                            }}
                             style={{ marginRight: 19 }}
                           />
                         </div>
@@ -199,7 +226,9 @@ const BookScreen: NextPage = () => {
           <ButtonCustom
             text={"Publicar"}
             disabled={disableButton}
-            onPress={handleUploadReview}
+            onPress={() =>
+              showEditView ? handleUploadReview() : handlePublishEdit()
+            }
             className="buttonPublish"
           />
         </div>

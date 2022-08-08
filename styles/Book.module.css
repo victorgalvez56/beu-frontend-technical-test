@@ -25,13 +25,7 @@
   top: 0px;
 }
 
-.starsBanner {
-  width: 107.33px;
-  height: 16px;
-}
-
 .section2 {
-  width: 90px;
   height: 100%;
   text-align: center;
 }
@@ -48,7 +42,6 @@
   overflow: hidden;
   z-index: 0;
   position: relative;
-  margin-left: 133.5px;
 }
 
 .section3:hover {
@@ -78,8 +71,7 @@
 }
 
 .boxSection {
-  margin-left: 133.5px;
-  margin-top: 10px;
+  text-align: center;
 }
 
 .boxDescription {

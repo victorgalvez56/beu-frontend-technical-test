@@ -40,7 +40,7 @@ const Home: NextPage = () => {
           (e) => console.error(e)
         );
       }
-    }, 2000);
+    }, 1000);
 
     return () => clearTimeout(delayWriteFn);
   }, [word]);
