@@ -2,8 +2,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Mulish, sans-serif;
+  font-family: "Mulish";
 }
 input {
   font-family: "Mulish";
@@ -106,6 +105,9 @@ a {
 }
 
 .containerReview {
+  font-family: "Mulish";
+  font-style: normal;
+  font-size: 14px;
   padding: 10px 12px;
   gap: 10px;
   width: 100%;
