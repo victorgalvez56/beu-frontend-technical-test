@@ -85,7 +85,7 @@ const Home: NextPage = () => {
                       }
                       alt="book"
                       className={styles.imgSection}
-                      width={92.53}
+                      width={"100%"}
                       height={125.8}
                     />
                   </Link>
@@ -196,12 +196,6 @@ const Home: NextPage = () => {
   };
   return (
     <div className={styles.container}>
-      <Head>
-        <title>Bookapp</title>
-        <meta name="description" content="Bookapp" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <main className={styles.main}>
         <div className={styles.containerBrand}>
           <Image

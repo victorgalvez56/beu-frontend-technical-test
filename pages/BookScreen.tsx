@@ -79,23 +79,12 @@ const BookScreen: NextPage = () => {
   };
   useEffect(() => {
     localStorage.setItem("reviews", JSON.stringify(reviews));
-    console.warn(reviews);
     setNameReview("");
     setNameUser("");
   }, [reviews]);
 
   return (
     <div>
-      <Head>
-        <title>Bookapp</title>
-        <meta name="description" content="Bookapp" />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=1"
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <main className={styles.main}>
         <ReactModal
           isOpen={modalIsOpen}

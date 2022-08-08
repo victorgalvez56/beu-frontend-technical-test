@@ -90,7 +90,7 @@
 
 .description:hover {
   overflow: visible;
-  -webkit-line-clamp: initial;
+  -webkit-line-clamp: unset;
 }
 .separate {
   height: 2px;

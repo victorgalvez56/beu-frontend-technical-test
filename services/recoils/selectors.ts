@@ -15,7 +15,6 @@ export const sendEmail = selector({
         });
         return res.data.items;
       } catch (err) {
-        console.warn(err);
         return `Error: ` + err;
       }
     } else {

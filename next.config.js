@@ -5,6 +5,7 @@ const nextConfig = {
   images: {
     domains: ["books.google.com", "www.giulianisgrupo.com"],
   },
+  optimizeFonts: false,
   staticPageGenerationTimeout: 1000,
 };
 
