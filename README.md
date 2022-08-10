@@ -40,10 +40,8 @@ _Instructions to be able to upload the project in android or ios._
 
 _Examples of how the app works._
 
-1. First Part
 [![Alt text](https://img.youtube.com/vi/bCwjWWb_Pds/0.jpg)](https://www.youtube.com/shorts/bCwjWWb_Pds)
 
 
-2. Second Part
 [![Alt text](https://img.youtube.com/vi/lMZgz4K_Yn8/0.jpg)](https://youtu.be/lMZgz4K_Yn8)
 
