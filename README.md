@@ -35,7 +35,10 @@ _Instructions to be able to upload the project in android or ios._
    ```sh
    npm run dev
    ```
-
+3. Cypress 
+   ```sh
+   npm run cypress:open
+   ```
 ### Additional
 
 _Examples of how the app works._
