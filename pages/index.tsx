@@ -16,13 +16,21 @@ import { sendEmail } from "../services/recoils/selectors";
 import styles from "../styles/Home.module.css";
 import InputCustom from "./customComponents/inputCustom";
 import LoadingCustom from "./customComponents/loadingCustom";
-
 const Home: NextPage = () => {
   const [focusWord, setFocusWord] = useState(false);
   // const [search, setSearch] = useRecoilState(word);
+
   const [word, setWord] = useState("Javascript");
   const [books, setBooks] = useState<items[]>([]);
   const [loading, setLoading] = useState(false);
+  const [width, setWidth] = useState(window.innerWidth);
+  const updateDimensions = () => {
+    setWidth(window.innerWidth);
+  };
+  useEffect(() => {
+    window.addEventListener("resize", updateDimensions);
+    return () => window.removeEventListener("resize", updateDimensions);
+  }, []);
 
   const handleFocus = () =>
     focusWord ? setFocusWord(false) : setFocusWord(true);
@@ -50,11 +58,12 @@ const Home: NextPage = () => {
       <div className={styles.section}>
         {books.map((book, i) => {
           {
-            if (i <= 2) return null;
+            if (i < 2) return null;
 
             return (
               <div key={i}>
                 <div
+                  className="thing"
                   onClick={() =>
                     sessionStorage.setItem(
                       "bookSelected",
@@ -70,12 +79,6 @@ const Home: NextPage = () => {
                   <Link
                     href={{
                       pathname: "/BookScreen",
-                      query: {
-                        img: book.volumeInfo.imageLinks?.thumbnail,
-                        title: book.volumeInfo.title,
-                        authors: book.volumeInfo.authors,
-                        description: book.volumeInfo.description,
-                      },
                     }}
                   >
                     <Image
@@ -92,7 +95,7 @@ const Home: NextPage = () => {
                 </div>
 
                 <div className={styles.boxSection}>
-                  <div className={styles.starsSection}>
+                  <div id="textBanner" className={styles.starsSection}>
                     <Image
                       src="/images/stars.png"
                       alt="stars"
@@ -145,12 +148,6 @@ const Home: NextPage = () => {
                     <Link
                       href={{
                         pathname: "/BookScreen",
-                        query: {
-                          img: book.volumeInfo.imageLinks?.thumbnail,
-                          title: book.volumeInfo.title,
-                          authors: book.volumeInfo.authors,
-                          description: book.volumeInfo.description,
-                        },
                       }}
                     >
                       <Image
@@ -194,25 +191,104 @@ const Home: NextPage = () => {
       </div>
     );
   };
+
+  const BooksListDesktop = () => {
+    // const books: items[] = useRecoilValue(sendEmail);
+    return (
+      <div>
+        <div className={styles.padre}>
+          <div className={styles.hijo}>
+            <div className={styles.sectionDesktop}>
+              {books.map((book, i) => {
+                {
+                  return (
+                    <div key={i}>
+                      <div
+                        onClick={() =>
+                          sessionStorage.setItem(
+                            "bookSelected",
+                            JSON.stringify({
+                              img: book.volumeInfo.imageLinks?.thumbnail,
+                              title: book.volumeInfo.title,
+                              authors: book.volumeInfo.authors,
+                              description: book.volumeInfo.description,
+                            })
+                          )
+                        }
+                      >
+                        <Link
+                          href={{
+                            pathname: "/BookScreen",
+                          }}
+                        >
+                          <Image
+                            src={
+                              book.volumeInfo.imageLinks?.thumbnail ||
+                              "https://www.giulianisgrupo.com/wp-content/uploads/2018/05/nodisponible.png"
+                            }
+                            alt="book"
+                            className={styles.imgSection}
+                            width={163}
+                            height={250}
+                          />
+                        </Link>
+                      </div>
+
+                      <div className={styles.boxBanner}>
+                        <div className={styles.starsBanner}>
+                          <Image
+                            src="/images/stars.png"
+                            alt="starts"
+                            width={"100%"}
+                            height={16}
+                          />
+                        </div>
+                        <div className={styles.section2}>
+                          <div className={styles.section3}>
+                            <div className={styles.titleBanner}>
+                              {book.volumeInfo.title}
+                            </div>
+                            <div className={styles.textBanner}>
+                              {book.volumeInfo.authors}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                }
+              })}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
   return (
     <div className={styles.container}>
       <main className={styles.main}>
-        <div className={styles.containerBrand}>
-          <Image
-            src="/images/brand.png"
-            alt="Logo"
-            width={135.06}
-            height={39}
+        <div className={styles.containerCenter}>
+          <div className={styles.containerBrand}>
+            <Image
+              src="/images/brand.png"
+              alt="Logo"
+              width={135.06}
+              height={39}
+            />
+          </div>
+        </div>
+
+        <div className={styles.containerCenter}>
+          <InputCustom
+            handleFocus={handleFocus}
+            focus={focusWord}
+            icon={true}
+            value={word}
+            setValue={setWord}
+            className="containerSearch"
           />
         </div>
-        <InputCustom
-          handleFocus={handleFocus}
-          focus={focusWord}
-          icon={true}
-          value={word}
-          setValue={setWord}
-          className="containerSearch"
-        />
+
         {/* <React.Suspense
           fallback={
           <LoadingCustom />
@@ -222,8 +298,14 @@ const Home: NextPage = () => {
           <LoadingCustom />
         ) : (
           <div>
-            <BooksListBanner />
-            <BooksList />
+            {width > 768 ? (
+              <BooksListDesktop />
+            ) : (
+              <div>
+                <BooksListBanner />
+                <BooksList />
+              </div>
+            )}
           </div>
         )}
         {/* </React.Suspense> */}

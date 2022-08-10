@@ -203,7 +203,7 @@ const BookScreen: NextPage = () => {
           className="containerInput"
         />
         <div className={styles.boxReview}>
-          <label className={styles.titleReview}>Reseña</label>
+          <label className={styles.labelNameUser}>Reseña</label>
           <TeaxAreaCustom
             rows={10}
             value={nameReview}
